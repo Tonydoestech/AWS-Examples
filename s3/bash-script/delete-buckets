@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-echo "==create bucket"
+echo "==delete buckets"
 
 # check for the input variable in a bash script
 if [ -z "$1" ]; then
@@ -14,8 +14,6 @@ BUCKET_NAME=$1
 
 #https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html
 
-aws s3api create-bucket \
---bucket $BUCKET_NAME \
---create-bucket-configuration "LocationConstraint=us-west-1" \
---query Location \
---output text
+aws s3api delete-bucket \
+--bucket $BUCKET_NAME  \
+--

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo "==list buckets"
+
+aws s3 ls
+
+
+#New file not executable yet --> u is used for user group is executable
+#chmod u+x s3/bash-script/list-buckets
+
+#Check this by using
+#ls -la s3/bash-script/
+
+#you should be set!
