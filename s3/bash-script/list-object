@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+
+echo "==list objects"
+
+# check for the input variable in a bash script
+if [ -z "$1" ]; then
+  echo "There needs to be a bucket name ./bucket my-bucket-name"
+  echo "Usage: $0 <bucket-name>"
+  exit 1
+fi
+
+BUCKET_NAME=$1
+
+
+#https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html
+
+aws s3api list-objects-v2 \
+--bucket $BUCKET_NAME  \
+--query "contents[].{Key: Key, Size: Size}" \
+--output table

@@ -1,0 +1,16 @@
+
+
+How to change permissions on a files using linux
+list files 
+ls -la s3/ --list and list attributes
+
+chmod - change modify permission levels in linuc files. 
+chmod u+x s3/bash-script/* --> how to change attributes of a specific files
+
+Difference between #!/bin/bash and #!/usr/bin/env bash
+#!/bin/bash --> When you know exactly where the bash lives
+
+#!/usr/bin/env bash --> when you want a portability across machines 
+
+
+
