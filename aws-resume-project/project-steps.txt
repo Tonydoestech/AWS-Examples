@@ -2,7 +2,7 @@
 Date:9/10/2026
 
 The purpose of this file it to wlak through the steps/code I used to set up a static website using the AWS CLi. 
-I orginally decided to use an s3 static website and unblock public access but...\
+I orginally decided to use an s3 static website and unblock public access but...
 I decided to do this project using s3, cloudfront and cloudwatch. So I made the s3 private again after step 5. 
 
 
