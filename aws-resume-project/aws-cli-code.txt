@@ -1,4 +1,5 @@
 ------Overview of the Project----
+Date:9/10/2026
 
 The purpose of this file it to wlak through the steps/code I used to set up a static website using the AWS CLi. 
 I orginally decided to use an s3 static website and unblock public access but...\
@@ -8,7 +9,7 @@ I decided to do this project using s3, cloudfront and cloudwatch. So I made the 
 ----Here are the steps I used to complete this project----
 
 1. Create the s3 bucket 
-aws s3api create-bucket --bucket aws-resume-bucket-ah --create-bucket-configuration LocationContraint=us-west-1
+aws s3api create-bucket --bucket aws-resume-bucket-ah --create-bucket-configuration LocationConstraint=us-west-1
 
 2. Sync Files to s3 bucket (my-resume-bucket-ah)
 aws s3 sync aws-resume-project/ s3://aws-resume-bucket-ah
@@ -46,7 +47,30 @@ Name=aws-resume-oac,SigningProtocol=sigv4,SigningBehavior=always,OriginAccessCon
     1a. How to view OAC
     aws cloudfront list-origin-access-controls
 
-2.
+2. Create Cloudfront distribution
+aws cloudfront create-distribution --distribution-config file://aws-resume-project/dist-config.json
+
+3. Update the s3 bucket policy
+Create a bucket-policy.json file --> I search an example template from aws list in sources below.
+
+    3a. To update the bucket policy in the CLI use 
+    aws s3api put-bucket-policy --bucket aws-resume-bucket-ah --policy file://aws-resume-project/bucket-policy.json
+
+Problem: At this point I have checked the webpage and noticed that the index.css file isn't being read.
+Then I realize, I never added anything into the index.css file. I resynced the files but exculded aws-cli.txt.
+
+aws s3 sync aws-resume-project/ s3://aws-resume-bucket-ah --exclude "aws-cli-code.txt"
+
+4. Final Step check if everything is working correctly. Get the cloudfront url.
+
+aws cloudfront get-distribution --id 123456789 --query Distribution.DomainName --output text
+
+Project Completed
+
+Need to Improve on: I need to work on nevigating through cloudwatch, I was going to try to view the metrics
+of the distribution but I did not realize cloudwatch is only in virginia. 
+I will be doing more research on this to learn.
 
 
-Sources: https://docs.aws.amazon.com/cli/latest/reference/cloudfront/create-distribution.html
+Sources: https://docs.aws.amazon.com/cli/latest/reference/cloudfront/create-distribution.html, 
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-policy-language-overview.html?icmpid=docs_amazons3_console
