@@ -3,4 +3,4 @@ This repository will show my AWS projects and examples while I pursue my AWS Sol
 
 
 Project 1: AWS-Resume-Project - please read project-steps.txt to learn more about commands used to deploy this project. 
-  Online resume hosted using S3 bucket and cloudfront.
+  Online resume hosted using S3 bucket, cloudfront and cloudwatch.
