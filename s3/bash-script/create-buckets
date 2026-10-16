@@ -13,6 +13,7 @@ BUCKET_NAME=$1
 
 
 #https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html
+# How to run the script - ./s3/bash-script/create-bucket Enter_bucket_Name
 
 aws s3api create-bucket \
 --bucket $BUCKET_NAME \
