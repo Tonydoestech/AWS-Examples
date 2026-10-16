@@ -13,7 +13,7 @@
 	"forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y git-lfs && git lfs install",
+	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y git-lfs && git lfs install && pip install boto3",
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postStartCommand": "curl -fsSL https://awscli.amazonaws.com/v2/install.sh | bash",
