@@ -3,7 +3,7 @@
 echo "==create buckets"
 
 # check for the input variable in a bash script
-if [ -z "$1" ]; then
+if [ '-z'"$1" ]; then
   echo "There needs to be a bucket name ./bucket my-bucket-name"
   echo "Usage: $0 <bucket-name>"
   exit 1
