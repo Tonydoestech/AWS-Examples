@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+
+aws cloudformation delete-stack \ 
+--stack-name my-example-stack \
+--region us-east-1
+
+
+#chmod u+x s3/cfn/delete-stack
+#cd s3/cfn/
+#./s3/cfn/delete-stack
