@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+
+name="my-s3-bucket-stack"
+
+# NOTE: CAPABILITY_NAMED_IAM is not needed here because 
+# your template only creates an S3 resource with no IAM entities.
+aws cloudformation deploy \
+  --template-file template.yaml \
+  --stack-name "$name" \
+  --region us-east-1
+
+
+  #chmod u+x s3/cfn/deploy/deploy
+  #cd s3/cfn/
+  #./s3/cfn/deploy
+
